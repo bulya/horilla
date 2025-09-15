@@ -41,7 +41,7 @@ services:
     volumes:
       - horilla-data-v2:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres"]
+      test: ["CMD-SHELL", "pg_isready -U \"$POSTGRES_USER\" -d \"$POSTGRES_DB\" -h 127.0.0.1 || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
