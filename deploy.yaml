@@ -39,7 +39,7 @@ services:
       - 5432:5432
     restart: unless-stopped
     volumes:
-      - horilla-data:/var/lib/postgresql/data
+      - horilla-data-v2:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
@@ -49,7 +49,7 @@ services:
       - internal
 
 volumes:
-  horilla-data:
+  horilla-data-v2:
 
 networks:
   internal:
